@@ -37,7 +37,8 @@ if userge.has_bot:
         alive_s += f"• ⛽️ 𝗗𝘆𝗻𝗼 𝗦𝗮𝘃𝗲𝗿 : {dynos_saver}\n"
         alive_s += f"• 💬 𝗕𝗼𝘁 𝗙𝗼𝗿𝘄𝗮𝗿𝗱𝘀 : {_parse_arg(Config.BOT_FORWARDS)}\n"
         alive_s += f"• 📝 𝗣𝗠 𝗟𝗼𝗴𝗴𝗲𝗿 : {_parse_arg(Config.PM_LOGGING)}\n"
-        alive_s += f"• 📝 UPTIME : {userge.uptime}"
+        alive_s += f"• 🚥 Ping : {m_s}\n"
+        alive_s += f"• ⏳ UPTIME : {userge.uptime}"
         await callback_query.answer(alive_s, show_alert=True)
 
 
