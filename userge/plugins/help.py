@@ -53,20 +53,20 @@ BUTTON_BASE = get_collection("TEMP_BUTTON")  # TODO use json cache
 REPO_X = InlineQueryResultArticle(
     title="Repo",
     input_message_content=InputTextMessageContent("**Here's how to setup USERGE-X** "),
-    url="https://github.com/code-rgb/USERGE-X",
+    url="https://github.com/ravana69/USERGE-X",
     description="Setup Your Own",
     thumb_url="https://i.imgur.com/1xsOo9o.png",
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 USERGE-X Repo", url="https://github.com/code-rgb/USERGE-X"
+                    "🔥 USERGE-X Repo", url="https://github.com/ravana69/USERGE-X"
                 ),
                 InlineKeyboardButton(
                     "🚀 Deploy USERGE-X",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/code-rgb/USERGE-X/tree/alpha"
+                        "https://github.com/ravana69/USERGE-X/tree/alpha"
                     ),
                 ),
             ]
@@ -75,11 +75,11 @@ REPO_X = InlineQueryResultArticle(
 )
 # Thanks boi @FLAMEPOSEIDON
 ALIVE_IMGS = [
-    "https://telegra.ph/file/11123ef7dff2f1e19e79d.jpg",
-    "https://i.imgur.com/uzKdTXG.jpg",
-    "https://telegra.ph/file/6ecab390e4974c74c3764.png",
-    "https://telegra.ph/file/995c75983a6c0e4499b55.png",
-    "https://telegra.ph/file/86cc25c78ad667ca5e691.png",
+    "https://telegra.ph/file/4d3bfed7c21c0ccb18e7d.jpg",
+    "https://telegra.ph/file/34543e28fe3c72d99d0dd.jpg",
+    "https://telegra.ph/file/a859e8f4c72dc7cf68fd8.jpg",
+    "https://telegra.ph/file/ff8927aa7a808833c11b4.jpg",
+    "https://telegra.ph/file/ec5c00fc35088c8296711.jpg",
 ]
 
 
