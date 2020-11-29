@@ -839,9 +839,9 @@ if userge.has_bot:
                             reply_markup=InlineKeyboardMarkup(buttons),
                         )
                     )
-                            
-            if str_y[0] =="warn_":
-                warn_data = str_y[1].split('|')
+
+            if str_y[0] == "warn_":
+                warn_data = str_y[1].split("|")
                 warned_user = warn_data[0]
                 chat_name_ = warn_data[1]
                 reason_ = warn_data[2]
@@ -852,26 +852,29 @@ if userge.has_bot:
 Reason: <code>{}</code>
 Warns: 1/3
 """
-                buttons = [[
-                    InlineKeyboardButton("⚠️  Remove Warn", callback_data=f"warns_{inline_query.id}"),
-                    InlineKeyboardButton("📝  Rules", url="https://t.me/useless_x/22")
-                ]]
+                buttons = [
+                    [
+                        InlineKeyboardButton(
+                            "⚠️  Remove Warn", callback_data=f"warns_{inline_query.id}"
+                        ),
+                        InlineKeyboardButton(
+                            "📝  Rules", url="https://t.me/useless_x/22"
+                        ),
+                    ]
+                ]
                 results.append(
-                        InlineQueryResultArticle(
-                            title="Just A Test lol",
-                            input_message_content=InputTextMessageContent(
-                                warn_text.format(
-                                    owner_link,
-                                    warned_user,
-                                    chat_name_,
-                                    reason_
-                                ),
-                                disable_web_page_preview=True
+                    InlineQueryResultArticle(
+                        title="Just A Test lol",
+                        input_message_content=InputTextMessageContent(
+                            warn_text.format(
+                                owner_link, warned_user, chat_name_, reason_
                             ),
-                            description="warning",
-                            thumb_url="https://i.imgur.com/ZuS0mLb.jpg",
-                            reply_markup=InlineKeyboardMarkup(buttons)
-                        )
+                            disable_web_page_preview=True,
+                        ),
+                        description="warning",
+                        thumb_url="https://i.imgur.com/ZuS0mLb.jpg",
+                        reply_markup=InlineKeyboardMarkup(buttons),
+                    )
                 )
 
             if string == "repo":
