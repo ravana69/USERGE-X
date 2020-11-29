@@ -32,8 +32,9 @@ class Config:
     WORKERS = min(32, int(os.environ.get("WORKERS")) or os.cpu_count() + 4)
     BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
     HU_STRING_SESSION = os.environ.get("HU_STRING_SESSION", None)
-    OWNER_ID = int(os.environ.get("OWNER_ID", 0))
+    OWNER_ID = tuple(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "0").split())))
     LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
+    AUTH_CHATS = (OWNER_ID[0], LOG_CHANNEL_ID) if OWNER_ID else (LOG_CHANNEL_ID,)
     DB_URI = os.environ.get("DATABASE_URL")
     LANG = os.environ.get("PREFERRED_LANGUAGE")
     DOWN_PATH = os.environ.get("DOWN_PATH")
@@ -47,7 +48,6 @@ class Config:
     INSTA_PASS = os.environ.get("INSTA_PASS")
     UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO")
     UPSTREAM_REMOTE = os.environ.get("UPSTREAM_REMOTE")
-    SCREENSHOT_API = os.environ.get("SCREENSHOT_API", None)
     SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
     CURRENCY_API = os.environ.get("CURRENCY_API", None)
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
@@ -94,21 +94,25 @@ class Config:
     IMGFLIP_ID = os.environ.get('IMGFLIP_ID', None)
     IMGFLIP_PASS = os.environ.get('IMGFLIP_PASS', None)
     ALLOW_NSFW = os.environ.get("ALLOW_NSFW", "False")
-    pmlog_grp = os.environ.get("PM_LOG_GROUP_ID")
+    pmlog_grp = os.environ.get("PM_LOG_GROUP_ID", None)
     PM_LOG_GROUP_ID = int(pmlog_grp) if pmlog_grp else None
     PM_LOGGING = False
-    
+    DEEP_AI = os.environ.get("DEEP_AI", None)
+    ### Last FM
+    LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME", None)
+    LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
+
 
 def get_version() -> str:
     """ get userge version """
     ver = f"{versions.__major__}.{versions.__minor__}.{versions.__micro__}"
     try:
-        if "/code-rgb/userge-x" in Config.UPSTREAM_REPO.lower():
+        if "/ravana69/userge-x" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
-                return f"{ver}-STORM.{len(diff)}"
+                return f"{ver}-ROGUE.{len(diff)}"
         else:
-            diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/master..HEAD'))
+            diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
                 return f"{ver}-fork-[X].{len(diff)}"
     except Exception as e:

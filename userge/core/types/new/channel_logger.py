@@ -134,7 +134,7 @@ class ChannelLogger:
                 pass pyrogram.Message object which want to forward.
 
             caption (`str`, *optional*):
-                Text or Cpation of the message to be sent.
+                Text or Caption of the message to be sent.
 
         Returns:
             message_id on success or None
@@ -152,10 +152,9 @@ class ChannelLogger:
                                                          file_id=file_id,
                                                          file_ref=file_ref,
                                                          caption=caption)
-            message_id = msg.message_id
+            return msg.message_id
         else:
-            message_id = await self.log(caption)
-        return message_id
+            return await self.log(caption)
 
     async def forward_stored(self,
                              client: Union['_client.Userge', '_client._UsergeBot'],

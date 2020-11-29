@@ -69,7 +69,7 @@ class Command(Filter):
                 and m.text
                 and (
                     (
-                        (m.from_user.id == Config.OWNER_ID)
+                        (m.from_user.id in Config.OWNER_ID)
                         or (
                             Config.SUDO_ENABLED
                             and (m.from_user.id in Config.SUDO_USERS)
