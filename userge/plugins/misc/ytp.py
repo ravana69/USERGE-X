@@ -42,7 +42,6 @@ async def ytinfo(message: Message):
         await message.err(str(_exracted))
         return
     out = """
-**Title** >>
 __{title}__
     """.format_map(
         _exracted
