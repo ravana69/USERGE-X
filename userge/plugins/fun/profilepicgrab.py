@@ -14,16 +14,18 @@
 
 import os
 
-from userge import userge, Message
+from userge import Message, userge
 
-@userge.on_cmd("ppg", about={
 
-    'header': "use this to get any user details",
-
-    'usage': "just reply to any user message or add user_id or username",
-
-    'examples': "{tr}ppg [user_id | username]"}, allow_channels=False)
-
+@userge.on_cmd(
+    "ppg",
+    about={
+        "header": "use this to get any user details",
+        "usage": "just reply to any user message or add user_id or username",
+        "examples": "{tr}ppg [user_id | username]",
+    },
+    allow_channels=False,
+)
 async def who_is(message: Message):
 
     await message.edit("`Collecting Picture Of Rendi.. Hang on!`")
@@ -41,8 +43,8 @@ async def who_is(message: Message):
         except Exception:
 
             await message.err(
-
-                "no valid user_id or message specified, do .help whois for more info")
+                "no valid user_id or message specified, do .help whois for more info"
+            )
 
             return
 
@@ -54,31 +56,33 @@ async def who_is(message: Message):
 
     else:
 
-        await message.err("no valid user_id or message specified, do .help whois for more info")
+        await message.err(
+            "no valid user_id or message specified, do .help whois for more info"
+        )
 
         return
 
     if from_user or from_chat is not None:
 
-        pp_c = await userge.get_profile_photos_count(from_user.id)
+        await userge.get_profile_photos_count(from_user.id)
 
-        cc_no = len(await userge.get_common_chats(from_user.id))
+        len(await userge.get_common_chats(from_user.id))
 
         message_out_str = "<b>PROFILE PIC GRABBED</b>\n\n"
 
         if from_user.photo:
 
-            local_user_photo = await userge.download_media(message=from_user.photo.big_file_id)
+            local_user_photo = await userge.download_media(
+                message=from_user.photo.big_file_id
+            )
 
-            await userge.send_photo(chat_id=message.chat.id,
-
-                                    photo=local_user_photo,
-
-                                    caption=message_out_str,
-
-                                    parse_mode="html",
-
-                                    disable_notification=True)
+            await userge.send_photo(
+                chat_id=message.chat.id,
+                photo=local_user_photo,
+                caption=message_out_str,
+                parse_mode="html",
+                disable_notification=True,
+            )
 
             os.remove(local_user_photo)
 

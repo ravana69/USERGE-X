@@ -1,34 +1,30 @@
+import asyncio
 import os
 
-import asyncio
-
-from userge import userge, Message, Config
+from userge import Config, Message, userge
 
 S_LOG = userge.getCLogger(__name__)
 
-@userge.on_cmd("slow", about={
 
-    'header': "Spam some Messages",
-
-    'description': "Message Spam module just for fun."
-
-                   "Btw Don't over use this plugin or get"
-
-                   "ready for account ban or flood waits. "
-
-                   "For spamming text use '|' to separate count and text.",
-
-    'usage': "{tr}slow [spam count] | [spam message/reply to a media]",
-
-    'examples': "**For Text:** `{tr}slow 2 | Durov will ban me for using this plugin`"})
-
+@userge.on_cmd(
+    "slow",
+    about={
+        "header": "Spam some Messages",
+        "description": "Message Spam module just for fun."
+        "Btw Don't over use this plugin or get"
+        "ready for account ban or flood waits. "
+        "For spamming text use '|' to separate count and text.",
+        "usage": "{tr}slow [spam count] | [spam message/reply to a media]",
+        "examples": "**For Text:** `{tr}slow 2 | Durov will ban me for using this plugin`",
+    },
+)
 async def spam(message: Message):
 
     replied = message.reply_to_message
 
     is_str = "|" in message.input_str
 
-    if (replied and replied.media and not is_str):
+    if replied and replied.media and not is_str:
 
         if not os.path.isdir(Config.DOWN_PATH):
 
@@ -58,16 +54,14 @@ async def spam(message: Message):
 
                 await asyncio.sleep(60)
 
-            await S_LOG.log(f"Spammed Sticker in Chat» {message.chat.title}, {sc} times")
+            await S_LOG.log(
+                f"Spammed Sticker in Chat» {message.chat.title}, {sc} times"
+            )
 
-        elif (replied.animation or replied.video or replied.photo):
+        elif replied.animation or replied.video or replied.photo:
 
             dls = await userge.download_media(
-
-                message=message.reply_to_message,
-
-                file_name=Config.DOWN_PATH
-
+                message=message.reply_to_message, file_name=Config.DOWN_PATH
             )
 
             to_spam = os.path.join(Config.DOWN_PATH, os.path.basename(dls))
@@ -86,7 +80,7 @@ async def spam(message: Message):
 
             await message.edit(f"Spamming {sc} times")
 
-            if (replied.video or replied.animation):
+            if replied.video or replied.animation:
 
                 for _ in range(sc):
 
