@@ -262,6 +262,7 @@ async def view_current_blockPM_msg(message: Message):
     & ~filters.service
     & ~Config.ALLOWED_CHATS,
     allow_via_bot=False,
+    group=-1,
 )
 async def uninvitedPmHandler(message: Message):
     """ pm message handler """
