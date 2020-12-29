@@ -1268,17 +1268,17 @@ async def gshare_(message: Message):
         "header": "Upload files to GDrive",
         "description": "set destination by setting parent_id, "
         "use `{tr}gset` to set parent_id (root path).",
-        "usage": "{tr}gup [file / folder path | direct link | reply to telegram file] "
+        "usage": "{tr}gwl [file / folder path | direct link | reply to telegram file] "
         "| [new name]",
         "examples": [
-            "{tr}gup test.bin : reply to tg file",
-            "{tr}gup downloads/100MB.bin | test.bin",
-            "{tr}gup https://speed.hetzner.de/100MB.bin | testing upload.bin",
+            "{tr}gwl test.bin : reply to tg file",
+            "{tr}gwl downloads/100MB.bin | test.bin",
+            "{tr}gwl https://speed.hetzner.de/100MB.bin | testing upload.bin",
         ],
     },
     check_downpath=True,
 )
-async def gup_(message: Message):
+async def gwl_(message: Message):
     """ upload to gdrive """
     await Worker(message).upload()
 
