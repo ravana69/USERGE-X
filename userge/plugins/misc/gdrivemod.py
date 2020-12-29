@@ -1055,9 +1055,7 @@ class Worker(_GDrive):
         if isinstance(self._output, HttpError):
             out = f"**ERROR** : `{self._output._get_reason()}`"  # pylint: disable=protected-access
         elif self._output is not None and not self._is_canceled:
-            out = (
-                f"**Downloaded to Heroku Server Successfully** __in {m_s} seconds__\n\n`{self._output}`"
-            )
+            out = f"**Downloaded to Heroku Server Successfully** __in {m_s} seconds__\n\n`{self._output}`"
         elif self._output is not None and self._is_canceled:
             out = self._output
         else:
