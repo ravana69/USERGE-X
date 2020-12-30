@@ -1318,22 +1318,22 @@ async def gshare_(message: Message):
 
 
 @userge.on_cmd(
-    "gin",
+    "gindex",
     about={
         "header": "Upload files to GDrive",
         "description": "set destination by setting parent_id, "
-        "use `{tr}gin` to set parent_id (root path).",
-        "usage": "{tr}gin [file / folder path | direct link | reply to telegram file] "
+        "use `{tr}gindex` to set parent_id (root path).",
+        "usage": "{tr}gindex [file / folder path | direct link | reply to telegram file] "
         "| [new name]",
         "examples": [
-            "{tr}gin test.bin : reply to tg file",
-            "{tr}gin downloads/100MB.bin | test.bin",
-            "{tr}gin https://speed.hetzner.de/100MB.bin | testing upload.bin",
+            "{tr}gindex test.bin : reply to tg file",
+            "{tr}gindex downloads/100MB.bin | test.bin",
+            "{tr}gindex https://speed.hetzner.de/100MB.bin | testing upload.bin",
         ],
     },
     check_downpath=True,
 )
-async def gin_(message: Message):
+async def gindex_(message: Message):
     """ upload to gdrive """
     await Worker(message).upload()
 
