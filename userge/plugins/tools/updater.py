@@ -32,8 +32,8 @@ async def check_update(message: Message):
     """ check or do updates """
     await message.edit("`Checking for updates, please wait....`")
     flags = list(message.flags)
-    pull_from_repo = True
-    push_to_heroku = True
+    pull_from_repo = False
+    push_to_heroku = False
     branch = "alpha"
     if "pull" in flags:
         pull_from_repo = True
@@ -119,8 +119,8 @@ async def _pull_from_repo(repo: Repo, branch: str) -> None:
 async def _push_to_heroku(msg: Message, repo: Repo, branch: str) -> None:
     sent = await msg.edit(
         f"`Now pushing updates from [{branch}] to heroku...\n"
-        "this will take upto 24 hours`\n\n"
-        f"* **Restart** after 24 hours using `{Config.CMD_TRIGGER}restart -h`\n\n"
+        "this will take upto 5 min`\n\n"
+        f"* **Restart** after 5 min using `{Config.CMD_TRIGGER}restart -h`\n\n"
         "* After restarted successfully, check updates again :)"
     )
     try:
