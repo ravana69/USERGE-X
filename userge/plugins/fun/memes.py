@@ -31,6 +31,7 @@ async def kek_(message: Message):
         time.sleep(0.3)
         await message.try_to_edit(":" + kek[i % 2])
 
+
 @userge.on_cmd(
     r"(?::()$",
     about={"header": "Check yourself, hint: `:(`"},
