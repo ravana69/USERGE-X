@@ -31,6 +31,20 @@ async def kek_(message: Message):
         time.sleep(0.3)
         await message.try_to_edit(":" + kek[i % 2])
 
+@userge.on_cmd(
+    r"(?::()$",
+    about={"header": "Check yourself, hint: `:(`"},
+    name="sed",
+    trigger="",
+    allow_via_bot=False,
+)
+async def kek_(message: Message):
+    """sed"""
+    sed = ["(", "))"]
+    for i in range(1, 9):
+        time.sleep(0.3)
+        await message.try_to_edit(":" + sed[i % 2])
+
 
 @userge.on_cmd(
     r"(?:-_-)$",
