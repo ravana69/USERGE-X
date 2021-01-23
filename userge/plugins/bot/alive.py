@@ -131,7 +131,6 @@ class Bot_Alive:
 
   Python</b> :                 🐍  <code>v{versions.__python_version__}</code>
   <b>Pyrogram</b> :         🔥  <code>v{versions.__pyro_version__}</code>
-  𝑿 :        🧬  <code>{Durable As A Lawda}</code>
 
 ⚙  <b>Mode  ➥  {Bot_Alive._get_mode()}</b>
 """
