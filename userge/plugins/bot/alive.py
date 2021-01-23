@@ -7,7 +7,7 @@ from pyrogram import filters
 from pyrogram.errors import BadRequest, Forbidden
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from userge import Config, Message, userge, versions
+from userge import Config, Message, get_version, userge, versions
 from userge.core.ext import RawClient
 from userge.utils import get_file_id, rand_array
 
@@ -131,6 +131,7 @@ class Bot_Alive:
 
   Python</b> :                 🐍  <code>v{versions.__python_version__}</code>
   <b>Pyrogram</b> :         🔥  <code>v{versions.__pyro_version__}</code>
+  𝑿 :        🧬  <code>v{get_version()}</code>
 
 ⚙  <b>Mode  ➥  {Bot_Alive._get_mode()}</b>
 """
