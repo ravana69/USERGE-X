@@ -3,6 +3,7 @@
 # By @Krishna_Singhal moded by @r4v4n4
 
 from pyrogram.errors.exceptions.bad_request_400 import YouBlockedUser
+
 from userge import Message, userge
 from userge.utils.exceptions import StopConversation
 
@@ -55,7 +56,6 @@ async def buttery1_(message: Message):
                 await message.edit(f"`{msg.text}`")
 
 
-
 @userge.on_cmd(
     "b2",
     about={
@@ -102,8 +102,8 @@ async def buttery2_(message: Message):
                 return
             if msg.text.startswith(battery2):
                 await message.edit(f"`{msg.text}`")
-                
-                
+
+
 @userge.on_cmd(
     "v1",
     about={
@@ -152,7 +152,6 @@ async def volume1_(message: Message):
                 await message.edit(f"`{msg.text}`")
 
 
-
 @userge.on_cmd(
     "v2",
     about={
@@ -199,8 +198,8 @@ async def volume2_(message: Message):
                 return
             if msg.text.startswith(volume2):
                 await message.edit(f"`{msg.text}`")
-                
-                
+
+
 @userge.on_cmd(
     "c1",
     about={
@@ -247,7 +246,6 @@ async def c1_(message: Message):
                 return
             if msg.text.startswith(c1):
                 await message.edit(f"`{msg.text}`")
-
 
 
 @userge.on_cmd(

@@ -8,9 +8,10 @@ import os
 
 import requests
 from PIL import Image
+from validators.url import url
+
 from userge import Config, Message, userge
 from userge.utils import deEmojify
-from validators.url import url
 
 CONVERTED_IMG = Config.DOWN_PATH + "img.png"
 CONVERTED_STIKR = Config.DOWN_PATH + "sticker.webp"
@@ -257,23 +258,23 @@ async def celeb_(msg: Message):
         "ramdev": "yogrishiramdev",
         "arnab": "ArnabGoswamiRTV",
         "rahul": "RahulGandhi",
-        "rajni" : "rajinikanth",
-        "apple" : "apple",
-        "fb" : "facebook",
-        "bjp" : "bjp4india",
-        "utube" : "youtube",
-        "preeti" : "advani_kiara",
-        "rdj" : "RobertDowneyJr",
-        "chris" : "chrishhemsworth",
-        "netflix" : "netflix",
-        "setu" : "Arogyasetu",
-        "ph" : "pornhub",
-        "osama" : "ItstherealOsama",
-        "hashmi" : "emraanhashmi",
-        "android" : "Android",
-        "twitter" : "Twitter",
-        "ht" : "htTweets",
-        "zee" : "ZeeNews"
+        "rajni": "rajinikanth",
+        "apple": "apple",
+        "fb": "facebook",
+        "bjp": "bjp4india",
+        "utube": "youtube",
+        "preeti": "advani_kiara",
+        "rdj": "RobertDowneyJr",
+        "chris": "chrishhemsworth",
+        "netflix": "netflix",
+        "setu": "Arogyasetu",
+        "ph": "pornhub",
+        "osama": "ItstherealOsama",
+        "hashmi": "emraanhashmi",
+        "android": "Android",
+        "twitter": "Twitter",
+        "ht": "htTweets",
+        "zee": "ZeeNews",
     }
 
     replied = msg.reply_to_message
