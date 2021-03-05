@@ -1,13 +1,14 @@
 FROM python:3.9-slim-buster
 
 ENV PIP_NO_CACHE_DIR 1
+ENV LANG C.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN sed -i.bak 's/us-west-2\.ec2\.//' /etc/apt/sources.list
 
 WORKDIR /app/
 
 RUN apt -qq update && apt -qq upgrade -y && \
-    rm -rf /var/lib/apt/lists/* && \
     apt -qq install -y --no-install-recommends \
     apt-utils \
     curl \
@@ -15,10 +16,6 @@ RUN apt -qq update && apt -qq upgrade -y && \
     gnupg2 \
     wget \
     unzip
-
-ENV LANG C.UTF-8
-
-ENV DEBIAN_FRONTEND noninteractive
 
 RUN mkdir -p /tmp/ && \
     cd /tmp/ && \
@@ -41,6 +38,7 @@ RUN apt -qq update && apt -qq install -y --no-install-recommends \
     build-essential coreutils jq pv \
     ffmpeg mediainfo \
     neofetch \
+    p7zip-full \
     libfreetype6-dev libjpeg-dev libpng-dev libgif-dev libwebp-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp/*
 
